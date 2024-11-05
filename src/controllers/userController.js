@@ -6,32 +6,28 @@ const userService = require("../services/userService");
 const userController = {
   login: async (req, res) => {
     try {
-      const { email, senha } = req.body;
+      const {email,senha} = req.body;
 
-      const user = await User.findOne({ where: { email } });
+      const user = await User.findOne({where : { email }});
 
-      if (!user) {
-        return res.status(400).json({
-          msg: "Email ou senha incorretos!!",
-        });
+      if(!user){
+          return res.status(400).json({
+              msg: "Email ou senha incorretos!!"
+          })
       }
 
-      const isValida = await bcrypt.compare(senha, user.senha);
-      if (!isValida) {
-        return res.status(400).json({
-          msg: "Email ou senha incorretos!!",
-        });
-      }
+      const isValida = await bcrypt.compare(senha, user.password);
+       if(!isValida){
+          return res.status(400).json({
+              msg: "Email ou senha incorretos!!"
+          })
+       }   
 
-      const token = jwt.sign(
-        { email: user.email, nome: user.nome },
-        process.env.SECRET,
-        { expiresIn: "1h" }
-      );
+       const token = jwt.sign({ email: user.email, nome: user.nome }, process.env.SECRET, {expiresIn: '1h'});
 
       return res.status(200).json({
         msg: "Login realizado!",
-        token,
+        token
       });
     } catch (error) {
       console.error(error);
@@ -43,9 +39,10 @@ const userController = {
       const user = await userService.create(req.body);
       return res.status(201).json({
         msg: "Usuário criado com sucesso",
-        user,
+        usuario: user,
       });
     } catch (error) {
+      console.error(error);
       return res.status(500).json({
         msg: "Erro ao tentar criar o usuário",
       });
