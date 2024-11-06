@@ -30,6 +30,24 @@ const dietController ={
             }) 
         }
     },
+    getById: async(req,res) =>{
+        try {
+            const diet = await dietService.getById(req.params.id)
+            if(!diet){
+                return res.status(400).json({
+                    msg: 'Diet não encontrado!'
+                })
+            }
+            return res.status(200).json({
+                msg: "Dieta encontrada",
+                diet
+            })
+        } catch (error) {
+            return res.status(500).json({
+                msg: 'Erro ao buscar a dieta.'
+            }) 
+        }
+    },
     delete: async(req, res) =>{
         try {
             const diet = await dietService.delete(req.params.id)

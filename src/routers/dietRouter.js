@@ -9,6 +9,10 @@ router.post('/', (req, res) =>{
 router.get('/', (req, res) =>{
     dietController.getAll(req, res)
 })
+
+router.get('/:id', (req,res) =>{
+    dietController.getById(req,res)
+})
  
 router.delete('/:id', (req, res) =>{
     dietController.delete(req, res)
