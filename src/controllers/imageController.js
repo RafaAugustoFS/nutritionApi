@@ -5,7 +5,9 @@ const imageController ={
     salvarImagem: async (req, res) => {
         try {
           const { caminhoImagem, nomeImagem, tipoImagem } = req.body;
-      
+
+          console.log(req.body);
+          
           // Chamar o serviço para salvar a imagem
           const imagem = await imageService.salvarImagem(caminhoImagem, nomeImagem, tipoImagem);
       

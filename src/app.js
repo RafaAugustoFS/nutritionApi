@@ -1,14 +1,15 @@
-require('dotenv').config();
-const express = require('express');
-const routes = require('./routers/router');
+require("dotenv").config();
+const express = require("express");
+const routes = require("./routers/router");
 const { sequelize } = require("./models/user");
 
 const app = express();
 app.use(express.json());
 
-app.use('/api', routes);
+app.use("/api", routes);
 
-sequelize.sync()
+sequelize
+  .sync()
   .then(() => {
     console.log("Conexão com o banco de dados com êxito!");
   })

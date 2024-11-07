@@ -6,7 +6,7 @@ router.post('/', (req, res) =>{
     imageController.salvarImagem(req, res);
 })
 
-router.get('/', (req, res) =>{
+router.get('/:idImagem', (req, res) =>{
     imageController.recuperarImagem(req, res);
 })
 
