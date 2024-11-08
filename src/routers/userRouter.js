@@ -1,10 +1,10 @@
 const { Router } = require('express');
 const userController = require("../controllers/userController");
-const validateUserLogin = require('../middlewares/validateUser');
+const { validateUserRegister, validateUserLogin } = require('../middlewares/validateUser');
 
 const router = Router();
 
-router.post('/', (req, res) =>{
+router.post('/', validateUserRegister, (req, res) =>{
     userController.create(req, res)
 })
 

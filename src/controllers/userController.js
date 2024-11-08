@@ -6,9 +6,9 @@ const userService = require("../services/userService");
 const userController = {
   login: async (req, res) => {
     try {
-      const {email,senha} = req.body;
+      const {email,password} = req.body;
 
-      const user = await User.findOne({where : { email }});
+      const user = await User.findOne({ where :{ email } });
 
       if(!user){
           return res.status(400).json({
@@ -16,7 +16,8 @@ const userController = {
           })
       }
 
-      const isValida = await bcrypt.compare(senha, user.password);
+      const isValida = await bcrypt.compare(password, user.password);
+      
        if(!isValida){
           return res.status(400).json({
               msg: "Email ou senha incorretos!!"
