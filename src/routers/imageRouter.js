@@ -2,12 +2,7 @@ const { Router } = require('express');
 const imageController = require("../controllers/imageController");
 const router = Router();
 
-router.post('/', (req, res) =>{
-    imageController.salvarImagem(req, res);
-})
+router.post('/', imageController.salvarImagem);
 
-router.get('/:idImagem', (req, res) =>{
-    imageController.recuperarImagem(req, res);
-})
-
+router.get('/:idImagem', imageController.recuperarImagem);
 module.exports = router;
