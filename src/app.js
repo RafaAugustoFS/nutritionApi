@@ -14,7 +14,7 @@ sequelize
     console.log("Conexão com o banco de dados com êxito!");
   })
   .catch((err) => {
-    console.error("Erro ao conecar ao banco: ", err);
+    console.error("Erro ao conectar com o banco: ", err);
   });
 
 const PORT = process.env.PORT || 3000;

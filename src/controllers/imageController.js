@@ -16,7 +16,7 @@ const imageController = {
       // Agora, a imagem está disponível no req.file
       const { originalname, mimetype, buffer } = req.file; // Os dados do arquivo
 
-      // Chamar o serviço para salvar a imagem
+      // Chamar o serviço para salvar ou atualizar a imagem
       const imagem = await imageService.salvarImagem(buffer, originalname, mimetype);
       
       res.status(201).send({
