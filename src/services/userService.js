@@ -35,11 +35,11 @@ const userService = {
   },
   getById: async (id) => {
     try {
-      const user = await User.findByPk(id);
-      if (!user) {
+      const atributte = await User.findByPk(id);
+      if (!atributte) {
         return null;
       }
-      return user;
+      return atributte;
     } catch (error) {
       throw new Error("Ocorreu um erro ao buscar o usuário");
     }
