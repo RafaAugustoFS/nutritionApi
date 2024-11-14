@@ -6,25 +6,24 @@ const attributesService={
 
         const imc = parseFloat(imcCru.toFixed(2));
         let status;
+        let status_id;
       
         switch (true) {
           case imc < 18.5:
             status = "Abaixo do peso";
+            status_id = 1; 
             break;
-          case imc >= 18.5 && imc < 25.0:
+          case imc >= 18.5 && imc < 24.9:
             status = "Peso normal";
+            status_id = 2;
             break;
-          case imc >= 25.0 && imc < 30.0:
-            status = "Sobrepeso";
-            break;
-          case imc >= 30.0 && imc < 35.0:
-            status = "Obesidade grau I";
-            break;
-          case imc >= 35.0 && imc <= 40:
-            status = "Obesidade grau II";
+          case imc >= 25.0:
+            status = "Acima do peso";
+            status_id = 3;
             break;
           default:
-            status = "Obesidade grau III";
+            status = "Obesidade";
+            status_id = 3
         }
       
         return await Attribute.create({

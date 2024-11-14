@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
+const Attribute = require('./attributes');
 
 const User = sequelize.define('User',{
     nome: {
@@ -15,7 +16,13 @@ const User = sequelize.define('User',{
         type: DataTypes.STRING,
         allowNull: false
     },
-    
+    status_id:{
+        type: DataTypes.INTEGER,
+        references:{
+            model: Attribute,
+            key:"status_id"
+        }
+    }
 },{
     timestamps: true
 });

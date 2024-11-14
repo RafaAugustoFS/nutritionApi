@@ -17,7 +17,11 @@ const Attribute = sequelize.define('Attribute',{
     status:{
         type: DataTypes.STRING,
         allowNull: true
-    }
+    },
+    status_id:{
+        type: DataTypes.INTEGER,
+        unique: true
+    },
 },{
     timestamps: true
 });

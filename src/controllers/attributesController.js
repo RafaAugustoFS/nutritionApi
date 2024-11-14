@@ -1,5 +1,3 @@
-// controllers/attributeController.js
-
 const Attribute = require("../models/attributes");
 const attributesService = require('../services/attributesService');
 
@@ -41,7 +39,6 @@ const attributeController = {
       }
   },
 
-  // Método para buscar todos os atributos
   getAll: async (req, res) => {
     try {
       const atributte = await Attribute.findAll();
