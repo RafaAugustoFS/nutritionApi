@@ -1,10 +1,10 @@
 const { Router } = require('express');
-const atributtesController = require("../controllers/attributesController");
+const attributesController = require("../controllers/attributesController");
 const router = Router();
 
-router.post('/', atributtesController.calcImc);
-router.get('/', atributtesController.getAll);
-router.get('/:id', atributtesController.getById);
+router.post('/', attributesController.calcImc);
+router.get('/', attributesController.getAll);
+router.get('/:id', attributesController.getById);
 
 
 module.exports = router;
