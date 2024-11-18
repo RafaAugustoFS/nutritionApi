@@ -30,7 +30,8 @@ const attributesService={
             altura,
             peso,
             imc,
-            status
+            status,
+            status_id
         })
       },
       getAll: async () => {

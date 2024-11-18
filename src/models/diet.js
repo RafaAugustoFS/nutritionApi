@@ -1,16 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const Attribute = require('./attributes');
 
 const Diet = sequelize.define('Diet',{
-    status_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references:{
-            model:Attribute,
-            key:"status_id"
-        }
-    },
     objetivo: {
         type:DataTypes.STRING
     },
